@@ -1,5 +1,6 @@
 package class12.jessie.day4;
 
+//Josephus problem Ô¼Éª·ò»·
 public class Three {
 
 	public static void main(String[] args) {
