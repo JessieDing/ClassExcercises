@@ -11,8 +11,8 @@ public class BubbleSort {
 		}
 		System.out.println();
 		// 开始冒泡排序
-		for (int i = 1; i < arr.length; i++) { // 外层循环需要进行length-1趟
-			for (int j = 0; j < arr.length - i; j++) { // 内层循环，两两比较length-i次
+		for (int i = 1; i < arr.length; i++) { // n个数，外层循环需要进行n-1趟
+			for (int j = 0; j < arr.length - i; j++) { // 内层循环，两两比较n-i次
 				if (arr[j] > arr[j + 1]) {
 					int temp = arr[j];
 					arr[j] = arr[j + 1];
