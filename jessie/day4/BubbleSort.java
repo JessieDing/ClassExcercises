@@ -11,15 +11,15 @@ public class BubbleSort {
 		}
 		System.out.println();
 		// 开始冒泡排序
-		for (int i = 1; i < arr.length; i++) { // n个数，外层循环需要进行n-1趟
-			for (int j = 0; j < arr.length - i; j++) { // 内层循环，两两比较n-i次
+		for (int i = 0; i < arr.length - 1; i++) { // n个数，外层循环需要进行n-1趟
+			for (int j = 0; j < arr.length - 1 - i; j++) { // 内层循环，两两比较n-i次，j+1<=length-1或j+1<length
 				if (arr[j] > arr[j + 1]) {
 					int temp = arr[j];
 					arr[j] = arr[j + 1];
 					arr[j + 1] = temp;
 				}
 			}
-			System.out.println("第" + i + "趟（外循环）排序结果：");
+			System.out.println("第" + (i + 1) + "趟（外循环）排序结果：");
 			for (int n = 0; n < arr.length; n++) {
 				System.out.print(arr[n] + " ");
 			}
