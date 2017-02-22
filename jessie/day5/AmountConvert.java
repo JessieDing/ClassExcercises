@@ -13,9 +13,12 @@ public class AmountConvert {
 		scan.close();
 	}
 
-	public static void convert(int lowerAmount) {
+	public static void convert(Integer lowerAmount) {
 		int unit = 10000;
-
+		// int unit = (int) Math.pow(10, lowerAmount.toString().length());
+		while (lowerAmount / unit == 0) {
+			unit = unit / 10;
+		}
 		while (lowerAmount > 0) {
 			int temp = 0;
 			temp = lowerAmount / unit;

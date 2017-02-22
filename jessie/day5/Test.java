@@ -15,13 +15,13 @@ public class Test {
 	public static double getRate(double amt) {
 		double rate = 0.00F;
 		if (amt <= 10000) {
-			rate = 0.02;// 2/100两个都是整型，算出来为整型
+			rate = 2.00 / 100;// 2/100两个都是整型，算出来为整型，再赋给rate，依然是整型
 			return rate;
 		} else if (amt <= 1000000) {
-			rate = 0.01;
+			rate = 1.00 / 100;
 			return rate;
 		} else {
-			rate = 0.075;// 0.75/100 一个是double，算出来结果为double
+			rate = 0.75 / 100;// 0.75/100 一个是double，算出来结果为double
 			return rate;
 		}
 	}
