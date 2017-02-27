@@ -1,6 +1,6 @@
 package class12.jessie.d0227;
 
-public class HmwkReview_DaffNum {
+public class HmwkRev_DaffNum {
 	public static void main(String[] args) {
 		for (int i = 100; i <= 999; i++) {
 			if (isDaffodil(i)) {
