@@ -1,13 +1,9 @@
-package class12.jessie.day6;
+package class12.jessie.d0227;
 
-//丁洁
-//写一个算法，判断一个数组是否是另一个数组的子数组
-//如：数组1{'a','b','c','d'},数组2为{'b','c','d'}
-//则2为1的子数组
-public class SubSet {
-
+public class HmwkRev_SubSet {
+	// 数组中*连续*的一个或多个整数组成一个子数组?
 	public static void main(String[] args) {
-		char[] a = new char[] { 'a', 'b', 'c', 'd' };
+		char[] a = new char[] { 'a', 'b', 'c', 'd', 'e' };
 		char[] b = new char[] { 'b', 'c', 'd' };
 		System.out.println("b是a的子数组吗？");
 		isSubset(a, b);
@@ -15,14 +11,18 @@ public class SubSet {
 
 	public static void isSubset(char[] a, char[] b) {
 		int count = 0;
+		boolean flag = true;
 		for (int i = 0; i < b.length; i++) {
-			for (int j = 0; j < a.length; j++) {
-				if (a[j] == b[i]) {
+			for (int j = i; j < a.length; j++) {
+				if (a[i] != b[j]) {
+					flag = false;
+					break;
+				} else {
 					count++;
 				}
 			}
 		}
-		if (count >= b.length) {
+		if (count == b.length || flag == true) {
 			System.out.println("是");
 		} else {
 			System.out.println("不是");
