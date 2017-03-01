@@ -4,28 +4,30 @@ public class HmwkRev_SubSet {
 	// 数组中*连续*的一个或多个整数组成一个子数组?
 	public static void main(String[] args) {
 		char[] a = new char[] { 'a', 'b', 'c', 'd', 'e' };
-		char[] b = new char[] { 'b', 'c', 'd' };
+		char[] b = new char[] { 'c', 'd', 'd' };
 		System.out.println("b是a的子数组吗？");
 		isSubset(a, b);
 	}
 
-	public static void isSubset(char[] a, char[] b) {
-		int count = 0;
-		boolean flag = true;
-		for (int i = 0; i < b.length; i++) {
-			for (int j = i; j < a.length; j++) {
-				if (a[i] != b[j]) {
-					flag = false;
-					break;
-				} else {
-					count++;
-				}
+	static void isSubset(char[] a, char[] b) {
+		char[] c = new char[b.length];
+		for (int i = 0; i < a.length; i++) {
+			if (b[0] == a[i] && (a.length - i) >= b.length) {
+				System.arraycopy(a, i, c, 0, b.length);
+				break;
 			}
 		}
-		if (count == b.length || flag == true) {
-			System.out.println("是");
+		boolean flag = true;
+		for (int j = 0; j < b.length; j++) {
+			if (b[j] != c[j]) {
+				flag = false;
+				break;
+			}
+		}
+		if (flag) {
+			System.out.println("b是a的子数组");
 		} else {
-			System.out.println("不是");
+			System.out.println("b不是a的子数组");
 		}
 	}
 }
