@@ -47,10 +47,10 @@ class Gun {
 	}
 
 	public void fire() {
-		if (left_bullet <= 0) {
+		if (left_bullet <= 0) {// 当前弹夹无子弹，不开火
 			return;
 		}
-		System.out.println("啪！子弹减少" + bullet_unit + "发。对方生命值-40");
+		System.out.println("shooting!子弹减少" + bullet_unit + "发。对方生命值减少！");
 		if (left_bullet > bullet_unit) {
 			left_bullet -= bullet_unit;// 当前剩余子弹，在原数量上减去每次开火减少的数量
 		} else {
