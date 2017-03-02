@@ -3,21 +3,28 @@ package class12.jessie.d0301;
 public class WeaponTest {
 
 	public static void main(String[] args) {
-		HandGun gun = new HandGun();
-		gun.asmb();
-		System.out.println("弹夹容量：" + gun.getMaxBullet());
+		HandGun gun = new HandGun("左轮手枪", 6, 1);
+		gun.reload();
+		gun.printInfo();
+		// gun.asmb();
+		// System.out.println("弹夹容量：" + gun.getMaxBullet());
 		// gun.setGunName("Glock 17");
 		// gun.setBulletUnit(1);
 		// gun.setMaxBullet(17);
 		// gun.reload();
 		// gun.fire();
 		// gun.printInfo();
-		AK47 ak = new AK47();
-		ak.asmb();
+		AK47 ak = new AK47("小弹夹AK47", 25, 3);
+		ak.reload();
+		ak.printInfo();
+		AK47 ak1 = new AK47("大弹夹AK47", 30, 3);
+		ak1.reload();
+		ak1.printInfo();
+		// ak.asmb();
 		// ak.setGunName("AK47");
 		// ak.setBulletUnit(3);
-		ak.setMaxBullet(30);
-		System.out.println("弹夹容量：" + ak.getMaxBullet());
+		// ak.setMaxBullet(30);
+		// System.out.println("弹夹容量：" + ak.getMaxBullet());
 		// ak.reload();
 		// ak.rapidFire();
 		// ak.printInfo();
@@ -25,11 +32,18 @@ public class WeaponTest {
 }
 
 class HandGun extends Gun {
-	HandGun() {
+	HandGun() {// 不带参数的构造方法（构造器）
 		System.out.println("***手枪构造方法");
 		name = "Glock 17";
 		max_bullet = 17;
 		bullet_unit = 1;
+	}
+
+	HandGun(String name, int maxBullet, int unitBullet) {// 带参数的构造方法（构造器），方法的重载
+		System.out.println("***带三个参数的手枪构造方法");
+		this.name = name;
+		max_bullet = maxBullet;
+		bullet_unit = unitBullet;
 	}
 
 	public void asmb() {
@@ -39,12 +53,18 @@ class HandGun extends Gun {
 
 class AK47 extends Gun {
 	// 子类添加新的特征和行为
-
-	AK47() {// 构造方法（构造器）
+	AK47() {// 不带构造方法（构造器）
 		System.out.println("***AK47构造方法");
 		name = "AK47";
 		max_bullet = 30;
 		bullet_unit = 3;
+	}
+
+	AK47(String name, int maxBullet, int unitBullet) {// 带参数的构造方法（构造器），方法的重载
+		System.out.println("***带三个参数的AK47构造方法");
+		this.name = name;
+		max_bullet = maxBullet;
+		bullet_unit = unitBullet;
 	}
 
 	public void rapidFire() { // 连发
@@ -105,7 +125,7 @@ class Gun {
 	}
 
 	public void printInfo() {
-		System.out.println(name + ",最大弹夹容量" + max_bullet + "发，当前剩余子弹" + left_bullet + "发");
+		System.out.println(name + ",最大弹夹容量" + max_bullet + "发，当前剩余子弹" + left_bullet + "发,每次打出" + bullet_unit + "发子弹");
 	}
 
 	public void asmb() {

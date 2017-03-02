@@ -4,7 +4,7 @@ public class HmwkRev_SubSet {
 	// 数组中*连续*的一个或多个整数组成一个子数组?
 	public static void main(String[] args) {
 		char[] a = new char[] { 'a', 'b', 'c', 'd', 'e' };
-		char[] b = new char[] { 'c', 'd', 'd' };
+		char[] b = new char[] { 'b', 'c', 'd' };
 		System.out.println("b是a的子数组吗？");
 		isSubset(a, b);
 	}
