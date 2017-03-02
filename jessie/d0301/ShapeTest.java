@@ -22,6 +22,10 @@ public class ShapeTest {
 }
 
 class Shape {
+	Shape() {
+		System.out.println("*Shape的构造方法");
+	}
+
 	String name;
 	double area;
 	double crm;
@@ -48,6 +52,10 @@ class Shape {
 }
 
 class Circ extends Shape {
+	Circ() {
+		System.out.println("*圆形的构造方法");
+	}
+
 	double radius;
 
 	public void setRadius(double r) {
