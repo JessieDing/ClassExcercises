@@ -9,19 +9,16 @@ public class ShapeTest {
 		Circ circ = new Circ();
 		circ.setName("圆形");
 		circ.draw();
-		circ.setRadius(6.00);
+		circ.setRadius(6);
 		System.out.println("圆形面积为：" + circ.findArea());
 		System.out.println("圆形周长为：" + circ.findCrm());
 		Rect rect = new Rect();
 		rect.setName("矩形");
 		rect.draw();
-		rect.setLens(12.00);
-		rect.setWid(8.00);
+		rect.setLW(12, 6);
 		System.out.println("矩形面积为：" + rect.findArea());
 		System.out.println("矩形周长为：" + rect.findCrm());
-
 	}
-
 }
 
 class Shape {
@@ -54,7 +51,7 @@ class Circ extends Shape {
 	double radius;
 
 	public void setRadius(double r) {
-		radius = r;
+		radius = r; // 若radius名为r，则写为this.r = r；
 	}
 
 	public double findArea() {
@@ -70,24 +67,29 @@ class Circ extends Shape {
 }
 
 class Rect extends Shape {
-	double length;
-	double width;
+	double l;
+	double w;
 
 	public void setLens(double l) {
-		length = l;
+		this.l = l;
 	}
 
 	public void setWid(double w) {
-		width = w;
+		this.w = w;
+	}
+
+	public void setLW(double l, double w) {
+		setLens(l);
+		setWid(w);
 	}
 
 	public double findArea() {
-		area = length * width;
+		area = l * w;
 		return area;
 	}
 
 	public double findCrm() {
-		crm = 2.00 * (length + width);
+		crm = 2.00 * (l + w);
 		return crm;
 	}
 }

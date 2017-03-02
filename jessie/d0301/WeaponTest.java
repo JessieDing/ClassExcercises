@@ -5,6 +5,7 @@ public class WeaponTest {
 	public static void main(String[] args) {
 		HandGun gun = new HandGun();
 		gun.asmb();
+		System.out.println("弹夹容量：" + gun.getMaxBullet());
 		// gun.setGunName("Glock 17");
 		// gun.setBulletUnit(1);
 		// gun.setMaxBullet(17);
@@ -15,7 +16,8 @@ public class WeaponTest {
 		ak.asmb();
 		// ak.setGunName("AK47");
 		// ak.setBulletUnit(3);
-		// ak.setMaxBullet(30);
+		ak.setMaxBullet(30);
+		System.out.println("弹夹容量：" + ak.getMaxBullet());
 		// ak.reload();
 		// ak.rapidFire();
 		// ak.printInfo();
@@ -23,6 +25,13 @@ public class WeaponTest {
 }
 
 class HandGun extends Gun {
+	HandGun() {
+		System.out.println("***手枪构造方法");
+		name = "Glock 17";
+		max_bullet = 17;
+		bullet_unit = 1;
+	}
+
 	public void asmb() {
 		System.out.println("用手枪方式组装");
 	}
@@ -30,6 +39,14 @@ class HandGun extends Gun {
 
 class AK47 extends Gun {
 	// 子类添加新的特征和行为
+
+	AK47() {// 构造方法（构造器）
+		System.out.println("***AK47构造方法");
+		name = "AK47";
+		max_bullet = 30;
+		bullet_unit = 3;
+	}
+
 	public void rapidFire() { // 连发
 		int n = 0;
 		while (left_bullet > 0) {
@@ -45,7 +62,7 @@ class AK47 extends Gun {
 }
 
 class Gun {
-	private String name;// 名称
+	String name;// 名称
 	int max_bullet;// 最大填弹量
 	int left_bullet; // 剩余子弹数量
 	int bullet_unit; // 每次开火打出子弹数量
@@ -54,11 +71,15 @@ class Gun {
 		max_bullet = num;
 	}
 
+	public int getMaxBullet() {
+		return max_bullet;
+	}
+
 	public void setBulletUnit(int num) {
 		bullet_unit = num;
 	}
 
-	public void setGunName(String str) {
+	public void setName(String str) {
 		name = str;
 	}
 

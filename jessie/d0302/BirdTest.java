@@ -1,0 +1,62 @@
+package class12.jessie.d0302;
+
+public class BirdTest {
+
+	public static void main(String[] args) {
+		Eagle eagle = new Eagle();
+		Ostrich ostrich = new Ostrich();
+		eagle.setName("老鹰");
+		eagle.printInfo();
+		// System.out.println("我是一只" + eagle.getName());
+		eagle.eat();
+		eagle.fly();
+		ostrich.setName("鸵鸟");
+		ostrich.printInfo();
+		ostrich.eat();
+		ostrich.fly();
+	}
+}
+
+class Bird {
+	String name;
+
+	public void setName(String str) {
+		name = str;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void eat() {
+		return;
+	}
+
+	public void fly() {
+		return;
+	}
+
+	public void printInfo() {
+		System.out.println("我是一只" + name);
+	}
+}
+
+class Eagle extends Bird {
+	public void eat() {
+		System.out.println("老鹰吃肉");
+	}
+
+	public void fly() {
+		System.out.println("老鹰会飞");
+	}
+}
+
+class Ostrich extends Bird {
+	public void eat() {
+		System.out.println("鸵鸟吃杂食");
+	}
+
+	public void fly() {
+		System.out.println("鸵鸟不会飞");
+	}
+}
