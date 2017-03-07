@@ -5,14 +5,16 @@ import java.util.Date;
 public class InterfaceDemo {
 
 	public static void main(String[] args) {
+		// 交易主流程
 		for (int i = 0; i < 3; i++) {
 			BankTrans bankTrans = bankTransFactory(i);
-			bankTrans.doTrans();
-			bankTrans.doPrint();
+			if (bankTrans.doTrans() == 0) { // 交易成功，打印凭条
+				bankTrans.doPrint();
+			}
 		}
 	}
 
-	public static BankTrans bankTransFactory(int type) {
+	public static BankTrans bankTransFactory(int type) { // 对象工厂模式
 		if (type == 1) {
 			return new Deposit();
 		} else if (type == 2) {
@@ -44,9 +46,9 @@ class Msg {
 }
 
 interface BankTrans {
-	public int doTrans();
+	public int doTrans(); // 做交易
 
-	public int doPrint();
+	public int doPrint(); // 打印交易凭条
 }
 
 class Deposit implements BankTrans {
