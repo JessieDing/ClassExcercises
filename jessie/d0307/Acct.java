@@ -35,7 +35,7 @@ public class Acct {
 		if (status != 1 && status != 3) {
 			System.out.println("账户状态非法");
 			return -1;
-		} // 失败
+		}
 		if (balance - amt > 0.00001) { // 判断账户余额是否充足
 			balance -= amt;
 			return 0;

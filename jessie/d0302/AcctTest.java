@@ -1,5 +1,11 @@
 package class12.jessie.d0302;
 
+//作业，存在几处问题：
+//一、无意义的继承。
+// 张三的账户即是Acct账户类的实例，直接用带参的构造函数new出即可。
+// 注意理解和应用面向对象的思想。
+//二、存取款、结息之前，先判断账户状态，再进行相应操作。
+
 public class AcctTest {
 
 	public static void main(String[] args) {
@@ -20,6 +26,9 @@ public class AcctTest {
 }
 
 class ZSAcct extends Acct {
+	// 无意义的继承。
+	// 张三的账户即是Acct账户类的实例，直接用带参的构造函数new出即可。
+	// 注意理解和应用面向对象的思想。
 	ZSAcct(String acct_no, String acct_name, int status, double balance) {
 		setAcct_no(acct_no);
 		setAcct_name(acct_name);
